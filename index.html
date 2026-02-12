@@ -11,7 +11,7 @@
         <!-- Navigation -->
         <div class="nav-buttons">
             <button id="prevBtn" onclick="changeSlide(-1)">&#10094;</button>
-            <span id="slideCounter">1 / 10</span>
+            <span id="slideCounter">1 / 15</span>
             <button id="nextBtn" onclick="changeSlide(1)">&#10095;</button>
         </div>
 
@@ -214,7 +214,161 @@ puts "Hallo #{name}"</code></pre>
             </div>
         </div>
 
-        <!-- Slide 9: Minimax Erklärung -->
+        <!-- Slide 9: Python Code Struktur -->
+        <div class="slide">
+            <h1>🐍 Unser Python Code</h1>
+            <p class="subtitle">Wir programmieren mit Python und Turtle Graphics!</p>
+
+            <div class="python-structure">
+                <div class="code-section">
+                    <h3>📋 Was macht unser Code?</h3>
+                    <div class="code-parts">
+                        <div class="code-part">
+                            <span class="part-num">1️⃣</span>
+                            <strong>Spielfeld zeichnen</strong>
+                            <p>Das 3x3 Gitter mit Linien</p>
+                        </div>
+                        <div class="code-part">
+                            <span class="part-num">2️⃣</span>
+                            <strong>X und O zeichnen</strong>
+                            <p>Symbole in den Feldern anzeigen</p>
+                        </div>
+                        <div class="code-part">
+                            <span class="part-num">3️⃣</span>
+                            <strong>Gewinner prüfen</strong>
+                            <p>Hat jemand 3 in einer Reihe?</p>
+                        </div>
+                        <div class="code-part">
+                            <span class="part-num">4️⃣</span>
+                            <strong>KI-Zug berechnen</strong>
+                            <p>Minimax findet den besten Zug</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 30px;">
+                <p>🎯 <strong>Heute werdet ihr:</strong> Den Code lesen, verstehen und anpassen!</p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Programming Challenges -->
+        <div class="slide">
+            <h1>🎯 Programmier-Challenges!</h1>
+            <p class="subtitle">60 Minuten - 4 Aufgaben</p>
+
+            <div class="challenges-container">
+                <div class="challenge-card easy">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">🎨</span>
+                        <h3>Challenge 1: Farben ändern</h3>
+                        <span class="challenge-time">⏱️ 10 Min</span>
+                    </div>
+                    <p>Ändere das Aussehen des Spielfelds!</p>
+                    <ul>
+                        <li>Finde die Farben im Code (<code>pen.color("...")</code>)</li>
+                        <li>Ändere die Hintergrundfarbe</li>
+                        <li>Ändere die Farben von X und O</li>
+                    </ul>
+                </div>
+
+                <div class="challenge-card medium">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">🔄</span>
+                        <h3>Challenge 2: Symbole tauschen</h3>
+                        <span class="challenge-time">⏱️ 30 Min</span>
+                    </div>
+                    <p>Lass Spieler wählen: X oder O?</p>
+                    <ul>
+                        <li>Nutze <code>if-else</code> Bedingungen</li>
+                        <li>Spieler soll am Anfang wählen können</li>
+                        <li>Computer spielt dann das andere Symbol</li>
+                    </ul>
+                </div>
+
+                <div class="challenge-card easy">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">🎉</span>
+                        <h3>Challenge 3: Gewinn-Animation</h3>
+                        <span class="challenge-time">⏱️ 10 Min</span>
+                    </div>
+                    <p>Zeige etwas Cooles, wenn jemand gewinnt!</p>
+                    <ul>
+                        <li>Zeichne Feuerwerk oder Sterne</li>
+                        <li>Verändere die Nachricht</li>
+                        <li>Mache es bunt und auffällig!</li>
+                    </ul>
+                </div>
+
+                <div class="challenge-card easy">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">🔄</span>
+                        <h3>Challenge 4: Neustart-Button</h3>
+                        <span class="challenge-time">⏱️ 10 Min</span>
+                    </div>
+                    <p>Starte das Spiel mit einem Klick neu!</p>
+                    <ul>
+                        <li>Finde die <code>reset_game()</code> Funktion</li>
+                        <li>Das Board soll sich leeren</li>
+                        <li>Alles beginnt von vorne!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Python Code Beispiel -->
+        <div class="slide">
+            <h1>📝 Der Python Code</h1>
+            <p class="subtitle">Wichtige Code-Teile zum Verstehen</p>
+
+            <div class="code-examples-scroll">
+                <div class="code-snippet">
+                    <h3>🎨 Farben und Zeichnen</h3>
+                    <pre><code>def draw_x(row, col):
+    pen.color("blue")  # ← Hier ändern!
+    pen.pensize(4)
+    # ... X zeichnen
+
+def draw_o(row, col):
+    pen.color("red")   # ← Hier ändern!
+    pen.pensize(4)
+    # ... O zeichnen</code></pre>
+                </div>
+
+                <div class="code-snippet">
+                    <h3>🔍 Gewinner prüfen</h3>
+                    <pre><code>def check_winner(b):
+    lines = [
+        [0,1,2], [3,4,5], [6,7,8],  # Reihen
+        [0,3,6], [1,4,7], [2,5,8],  # Spalten
+        [0,4,8], [2,4,6]             # Diagonal
+    ]
+    for line in lines:
+        if b[line[0]] == b[line[1]] == b[line[2]]:
+            return b[line[0]]  # Gewinner!</code></pre>
+                </div>
+
+                <div class="code-snippet">
+                    <h3>🤖 Minimax Algorithmus</h3>
+                    <pre><code>def minimax(b, is_maximizing):
+    winner = check_winner(b)
+    if winner == 'O':
+        return 10  # KI gewinnt
+    if winner == 'X':
+        return -10  # Mensch gewinnt
+
+    # Probiere alle Züge aus...
+    # Wähle den besten!</code></pre>
+                </div>
+            </div>
+
+            <div class="trinket-link">
+                <p>💻 <strong>Auf Trinket.io programmieren:</strong></p>
+                <p>Der komplette Code ist auf Trinket verfügbar!</p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Minimax Erklärung -->
         <div class="slide">
             <h1>🧠 Was ist Minimax?</h1>
             <div class="minimax-explanation">
@@ -237,27 +391,125 @@ puts "Hallo #{name}"</code></pre>
             </div>
         </div>
 
-        <!-- Slide 10: Jetzt bist du dran! -->
+        <!-- Slide 13: Design your own AI -->
         <div class="slide">
-            <h1>🌟 Jetzt bist du dran!</h1>
+            <h1>🏆 Entwerfe deine eigene Strategie!</h1>
+            <p class="subtitle">Teamwork - 20 Minuten</p>
+
+            <div class="team-activity">
+                <div class="activity-instructions">
+                    <h2>👥 Aufgabe für Teams (2-3 Personen):</h2>
+                    <div class="instruction-box">
+                        <h3>🎯 Ziel: Eine unbesiegbare Strategie erfinden!</h3>
+                        <ul class="activity-steps">
+                            <li><strong>1.</strong> Bildet 2er- oder 3er-Teams</li>
+                            <li><strong>2.</strong> Überlegt: Wie spielt man am besten?</li>
+                            <li><strong>3.</strong> Schreibt eure Strategie auf (Papier/Whiteboard)</li>
+                            <li><strong>4.</strong> Testet sie gegeneinander!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="strategy-hints">
+                    <h3>💡 Denkanstöße:</h3>
+                    <div class="hint-cards">
+                        <div class="hint-card">
+                            <span class="hint-icon">🎯</span>
+                            <p>Welches Feld ist am wichtigsten?<br>(Ecke? Mitte? Kante?)</p>
+                        </div>
+                        <div class="hint-card">
+                            <span class="hint-icon">🛡️</span>
+                            <p>Wann musst du blockieren?<br>(Gegner hat 2 in einer Reihe?)</p>
+                        </div>
+                        <div class="hint-card">
+                            <span class="hint-icon">⚔️</span>
+                            <p>Wann greifst du an?<br>(Zwei Gewinnmöglichkeiten schaffen?)</p>
+                        </div>
+                        <div class="hint-card">
+                            <span class="hint-icon">🔮</span>
+                            <p>Wie viele Züge voraus denkst du?<br>(1, 2, 3... alle?)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Showtime - Competition -->
+        <div class="slide">
+            <h1>🎬 Showtime - Der Wettbewerb!</h1>
+            <p class="subtitle">15 Minuten</p>
+
+            <div class="competition-section">
+                <div class="competition-rules">
+                    <h2>⚔️ Jetzt wird es ernst!</h2>
+                    <div class="rules-box">
+                        <h3>📋 Ablauf:</h3>
+                        <ol class="competition-steps">
+                            <li>
+                                <strong>Teams treten gegeneinander an</strong>
+                                <p>Spielt mit eurer Strategie gegen andere Teams</p>
+                            </li>
+                            <li>
+                                <strong>Erklärt eure Strategie während des Spiels</strong>
+                                <p>"Ich spiele hier, weil..."</p>
+                            </li>
+                            <li>
+                                <strong>Lernt von anderen</strong>
+                                <p>Was machen die anderen besser?</p>
+                            </li>
+                            <li>
+                                <strong>Teste gegen den Computer</strong>
+                                <p>Schafft ihr es, gegen Minimax zu gewinnen?</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="competition-prizes">
+                    <h3>🏅 Es geht nicht ums Gewinnen...</h3>
+                    <div class="prize-card">
+                        <p>...sondern darum:</p>
+                        <ul>
+                            <li>✨ Strategisch zu denken</li>
+                            <li>✨ Aus Fehlern zu lernen</li>
+                            <li>✨ Zusammenzuarbeiten</li>
+                            <li>✨ Spaß zu haben!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-final">
+                <h2>💪 Die ultimative Herausforderung:</h2>
+                <p class="final-challenge">Kann jemand den Minimax-Algorithmus besiegen? 🤔</p>
+                <p class="final-hint">(Spoiler: Nicht wirklich... aber ein Unentschieden ist möglich! 😊)</p>
+            </div>
+        </div>
+
+        <!-- Slide 15: Jetzt bist du dran! -->
+        <div class="slide">
+            <h1>🌟 Zusammenfassung & Ausblick</h1>
             <div class="final-message">
                 <div class="final-card">
                     <h2>🚀 Was du heute gelernt hast:</h2>
                     <ul>
                         <li>✅ Wie KI in Spielen funktioniert</li>
                         <li>✅ Was Programmierung ist</li>
-                        <li>✅ Verschiedene Programmiersprachen</li>
+                        <li>✅ Python Code lesen und anpassen</li>
                         <li>✅ Der Minimax-Algorithmus</li>
+                        <li>✅ Spielstrategien entwickeln</li>
+                        <li>✅ Im Team programmieren</li>
                     </ul>
                 </div>
 
                 <div class="final-card">
                     <h2>💻 Nächste Schritte:</h2>
                     <ul>
-                        <li>🐍 Lerne Python programmieren</li>
-                        <li>🎮 Baue dein eigenes XO-Spiel</li>
-                        <li>🤖 Experimentiere mit KI-Algorithmen</li>
-                        <li>🌟 Erstelle eigene coole Projekte!</li>
+                        <li>🐍 Lerne Python auf Trinket.io</li>
+                        <li>🎮 Erweitere dein XO-Spiel</li>
+                        <li>🤖 Probiere andere Algorithmen</li>
+                        <li>🌟 Baue 4-Gewinnt oder Schach!</li>
+                        <li>👥 Komm wieder zu CoderDojo!</li>
                     </ul>
                 </div>
             </div>
@@ -265,6 +517,7 @@ puts "Hallo #{name}"</code></pre>
             <div class="call-to-action">
                 <h2>Du kannst das! 💪</h2>
                 <p>Jeder Programmierer hat mal als Anfänger angefangen!</p>
+                <p class="thanks">Danke fürs Mitmachen! 🎉</p>
             </div>
         </div>
     </div>

@@ -500,39 +500,76 @@ while not game_over:
             </div>
         </div>
 
-        <!-- Slide 13: if-else Erklärung -->
+        <!-- Slide 13: if-else Konzept -->
         <div class="slide">
-            <h1>🤔 Die Lösung: if-else!</h1>
+            <h1>🤔 Was ist if-else?</h1>
             <p class="subtitle">Entscheidungen im Code treffen</p>
 
-            <div style="max-width: 800px; margin: 40px auto;">
-                <h3>Mit if-else können wir Entscheidungen treffen:</h3>
+            <div style="max-width: 900px; margin: 40px auto;">
+                <h3>Computer müssen Entscheidungen treffen können!</h3>
 
-                <pre style="font-size: 20px; margin: 30px 0;"><code>if board[pos] == 'X':
+                <div style="display: flex; gap: 40px; margin-top: 40px; align-items: center;">
+                    <div style="flex: 1;">
+                        <div style="font-size: 60px; text-align: center; margin-bottom: 20px;">🚦</div>
+                        <h3 style="text-align: center;">Wie eine Ampel</h3>
+                        <pre style="font-size: 18px; margin-top: 20px;"><code>if ampel == "grün":
+    fahren()
+else:
+    stehenbleiben()
+</code></pre>
+                    </div>
+
+                    <div style="flex: 1;">
+                        <div style="font-size: 60px; text-align: center; margin-bottom: 20px;">☔</div>
+                        <h3 style="text-align: center;">Wie beim Wetter</h3>
+                        <pre style="font-size: 18px; margin-top: 20px;"><code>if wetter == "Regen":
+    regenschirm_nehmen()
+else:
+    sonnenbrille_nehmen()
+</code></pre>
+                    </div>
+                </div>
+
+                <div style="margin-top: 50px; padding: 30px; background: #e3f2fd; border-radius: 15px;">
+                    <h3>Die Struktur:</h3>
+                    <pre style="font-size: 20px; margin-top: 20px;"><code>if <span style="color: #2196F3;">BEDINGUNG</span>:
+    <span style="color: #4CAF50;">Code wenn WAHR</span>
+else:
+    <span style="color: #FF9800;">Code wenn FALSCH</span>
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Die Lösung zeigen -->
+        <div class="slide">
+            <h1>✅ So lösen wir das Problem!</h1>
+            <p class="subtitle">if-else für unser Spiel</p>
+
+            <div style="max-width: 900px; margin: 40px auto;">
+                <h3>Vorher (❌ immer X):</h3>
+                <pre style="font-size: 18px; margin: 20px 0; background: #ffebee; padding: 20px; border-radius: 10px;"><code>board[pos] = 'X'    # oder 'O'
+draw_x(row, col)    # ← IMMER X! BUG!
+</code></pre>
+
+                <div style="text-align: center; font-size: 40px; margin: 30px 0;">⬇️</div>
+
+                <h3>Nachher (✅ richtig!):</h3>
+                <pre style="font-size: 18px; margin: 20px 0; background: #e8f5e9; padding: 20px; border-radius: 10px;"><code>board[pos] = 'X'    # oder 'O'
+
+if board[pos] == 'X':
     draw_x(row, col)      # Zeichne X
 else:
     draw_o(row, col)      # Zeichne O
 </code></pre>
 
-                <div style="display: flex; gap: 30px; margin-top: 40px;">
-                    <div style="flex: 1; padding: 20px; background: #e8f5e9; border-radius: 10px;">
-                        <h3 style="color: #27ae60;">✅ Wenn Bedingung WAHR</h3>
-                        <p>Führe Code nach <code>if</code> aus</p>
-                        <pre><code>board[pos] == 'X'  → True
-→ draw_x(row, col)</code></pre>
-                    </div>
-
-                    <div style="flex: 1; padding: 20px; background: #ffebee; border-radius: 10px;">
-                        <h3 style="color: #e74c3c;">❌ Wenn Bedingung FALSCH</h3>
-                        <p>Führe Code nach <code>else</code> aus</p>
-                        <pre><code>board[pos] == 'X'  → False
-→ draw_o(row, col)</code></pre>
-                    </div>
+                <div class="highlight" style="margin-top: 40px;">
+                    <p><strong>🎯 Jetzt wird geprüft:</strong> Was steht wirklich im Board?</p>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 14: Challenge 2 -->
+        <!-- Slide 15: Challenge 2 -->
         <div class="slide">
             <h1>🔄 Challenge 2: Symbole korrigieren!</h1>
             <p class="subtitle">⏱️ 15 Minuten</p>

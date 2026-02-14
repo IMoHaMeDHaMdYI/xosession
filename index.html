@@ -11,7 +11,7 @@
         <!-- Navigation -->
         <div class="nav-buttons">
             <button id="prevBtn" onclick="changeSlide(-1)">&#10094;</button>
-            <span id="slideCounter">1 / 15</span>
+            <span id="slideCounter">1 / 17</span>
             <button id="nextBtn" onclick="changeSlide(1)">&#10095;</button>
         </div>
 
@@ -22,24 +22,11 @@
             <p class="subtitle">CoderDojo Workshop</p>
         </div>
 
-        <!-- Slide 2: Was sind Spiele? -->
+        <!-- Slide 2: Interactive Question -->
         <div class="slide">
-            <h1>🎲 Was sind Spiele?</h1>
-            <div class="content-grid">
-                <div class="game-example">
-                    <h3>🎯 Videospiele</h3>
-                    <p>Minecraft, Fortnite, Roblox</p>
-                </div>
-                <div class="game-example">
-                    <h3>🃏 Brettspiele</h3>
-                    <p>Schach, Dame, Monopoly</p>
-                </div>
-                <div class="game-example">
-                    <h3>🎮 Strategie</h3>
-                    <p>TicTacToe, Vier Gewinnt</p>
-                </div>
+            <div class="interactive-question">
+                <h1 class="big-question">🎮 Welche Spiele spielt ihr?</h1>
             </div>
-            <p class="highlight">Alle Spiele haben <strong>Regeln</strong> und <strong>Strategien</strong>!</p>
         </div>
 
         <!-- Slide 3: KI in Spielen -->
@@ -63,31 +50,22 @@
 
         <!-- Slide 4: XO Spiel Einführung -->
         <div class="slide">
-            <h1>❌⭕ Das XO-Spiel (TicTacToe)</h1>
-            <div class="xo-intro">
-                <div class="xo-rules">
-                    <h3>Die Regeln:</h3>
-                    <ul>
-                        <li>✅ 3x3 Spielfeld</li>
-                        <li>✅ Zwei Spieler: X und O</li>
-                        <li>✅ Abwechselnd setzen</li>
-                        <li>✅ Ziel: 3 in einer Reihe!</li>
-                    </ul>
+            <div class="interactive-question">
+                <h1 class="big-question">❌⭕ Wer kann uns erinnern,<br>wie TicTacToe geht?</h1>
+            </div>
+            <div class="xo-example-small">
+                <div class="mini-board">
+                    <div class="mini-cell">X</div>
+                    <div class="mini-cell">O</div>
+                    <div class="mini-cell">X</div>
+                    <div class="mini-cell">O</div>
+                    <div class="mini-cell">X</div>
+                    <div class="mini-cell">O</div>
+                    <div class="mini-cell">X</div>
+                    <div class="mini-cell"></div>
+                    <div class="mini-cell"></div>
                 </div>
-                <div class="xo-example">
-                    <div class="mini-board">
-                        <div class="mini-cell">X</div>
-                        <div class="mini-cell">O</div>
-                        <div class="mini-cell">X</div>
-                        <div class="mini-cell">O</div>
-                        <div class="mini-cell">X</div>
-                        <div class="mini-cell">O</div>
-                        <div class="mini-cell">X</div>
-                        <div class="mini-cell"></div>
-                        <div class="mini-cell"></div>
-                    </div>
-                    <p class="win-text">X gewinnt! 🎉</p>
-                </div>
+                <p class="win-text">X gewinnt! 🎉</p>
             </div>
         </div>
 
@@ -316,7 +294,88 @@ puts "Hallo #{name}"</code></pre>
             </div>
         </div>
 
-        <!-- Slide 11: Python Code Beispiel -->
+        <!-- Slide 11: Data Representation -->
+        <div class="slide">
+            <h1>💾 Wie speichern wir das Spielfeld?</h1>
+            <p class="subtitle">Das Spielfeld digital verstehen</p>
+
+            <div class="data-representation">
+                <div class="representation-section">
+                    <h3>🎮 Das visuelle Spielfeld:</h3>
+                    <div class="visual-grid">
+                        <div class="grid-cell">
+                            <span class="cell-content">X</span>
+                            <span class="cell-index">0</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content">O</span>
+                            <span class="cell-index">1</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content"></span>
+                            <span class="cell-index">2</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content"></span>
+                            <span class="cell-index">3</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content">X</span>
+                            <span class="cell-index">4</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content"></span>
+                            <span class="cell-index">5</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content">O</span>
+                            <span class="cell-index">6</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content"></span>
+                            <span class="cell-index">7</span>
+                        </div>
+                        <div class="grid-cell">
+                            <span class="cell-content"></span>
+                            <span class="cell-index">8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrow-separator">➡️</div>
+
+                <div class="representation-section">
+                    <h3>💻 Im Computer (Liste):</h3>
+                    <div class="code-representation">
+                        <pre><code>board = [
+  'X',    # Position 0
+  'O',    # Position 1
+  None,   # Position 2 (leer)
+  None,   # Position 3 (leer)
+  'X',    # Position 4
+  None,   # Position 5 (leer)
+  'O',    # Position 6
+  None,   # Position 7 (leer)
+  None    # Position 8 (leer)
+]</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="representation-explanation">
+                <div class="explanation-box">
+                    <h3>🔑 Wichtig zu wissen:</h3>
+                    <ul>
+                        <li><strong>"b"</strong> in den Funktionen = <strong>board</strong> (das Spielfeld)</li>
+                        <li>Eine <strong>Liste</strong> speichert alle 9 Felder</li>
+                        <li><strong>Positionen 0-8</strong> statt 1-9 (Computer zählt ab 0!)</li>
+                        <li><strong>None</strong> = leeres Feld, <strong>'X'</strong> oder <strong>'O'</strong> = besetzt</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Python Code Beispiel -->
         <div class="slide">
             <h1>📝 Der Python Code</h1>
             <p class="subtitle">Wichtige Code-Teile zum Verstehen</p>
@@ -337,7 +396,7 @@ def draw_o(row, col):
 
                 <div class="code-snippet">
                     <h3>🔍 Gewinner prüfen</h3>
-                    <pre><code>def check_winner(b):
+                    <pre><code>def check_winner(b):  # b = board (Spielfeld)
     lines = [
         [0,1,2], [3,4,5], [6,7,8],  # Reihen
         [0,3,6], [1,4,7], [2,5,8],  # Spalten
@@ -350,7 +409,7 @@ def draw_o(row, col):
 
                 <div class="code-snippet">
                     <h3>🤖 Minimax Algorithmus</h3>
-                    <pre><code>def minimax(b, is_maximizing):
+                    <pre><code>def minimax(b, is_maximizing):  # b = board
     winner = check_winner(b)
     if winner == 'O':
         return 10  # KI gewinnt
@@ -368,7 +427,7 @@ def draw_o(row, col):
             </div>
         </div>
 
-        <!-- Slide 12: Minimax Erklärung -->
+        <!-- Slide 13: Minimax Erklärung -->
         <div class="slide">
             <h1>🧠 Was ist Minimax?</h1>
             <div class="minimax-explanation">
@@ -391,7 +450,7 @@ def draw_o(row, col):
             </div>
         </div>
 
-        <!-- Slide 13: Design your own AI -->
+        <!-- Slide 14: Design your own AI -->
         <div class="slide">
             <h1>🏆 Entwerfe deine eigene Strategie!</h1>
             <p class="subtitle">Teamwork - 20 Minuten</p>
@@ -434,7 +493,7 @@ def draw_o(row, col):
             </div>
         </div>
 
-        <!-- Slide 14: Showtime - Competition -->
+        <!-- Slide 15: Showtime - Competition -->
         <div class="slide">
             <h1>🎬 Showtime - Der Wettbewerb!</h1>
             <p class="subtitle">15 Minuten</p>
@@ -486,12 +545,19 @@ def draw_o(row, col):
             </div>
         </div>
 
-        <!-- Slide 15: Jetzt bist du dran! -->
+        <!-- Slide 16: Interactive Question - What did you learn? -->
+        <div class="slide">
+            <div class="interactive-question">
+                <h1 class="big-question">💭 Was habt ihr heute gelernt?</h1>
+            </div>
+        </div>
+
+        <!-- Slide 17: Zusammenfassung & Ausblick -->
         <div class="slide">
             <h1>🌟 Zusammenfassung & Ausblick</h1>
             <div class="final-message">
                 <div class="final-card">
-                    <h2>🚀 Was du heute gelernt hast:</h2>
+                    <h2>🚀 Was ihr heute gelernt habt:</h2>
                     <ul>
                         <li>✅ Wie KI in Spielen funktioniert</li>
                         <li>✅ Was Programmierung ist</li>
@@ -515,8 +581,8 @@ def draw_o(row, col):
             </div>
 
             <div class="call-to-action">
-                <h2>Du kannst das! 💪</h2>
-                <p>Jeder Programmierer hat mal als Anfänger angefangen!</p>
+                <h2>Ihr könnt das! 💪</h2>
+                <p>Jede:r Programmierer:in hat mal als Anfänger:in angefangen!</p>
                 <p class="thanks">Danke fürs Mitmachen! 🎉</p>
             </div>
         </div>

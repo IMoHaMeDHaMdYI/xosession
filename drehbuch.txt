@@ -1,0 +1,5 @@
+# Introduction 
+
+introduce myself and my collegue Linda
+Talk about how I love games and it's why I started programming because of a game called metin2 which i noticed is big in germany 
+This game is written in Python which is the Programming language we're talking about today 

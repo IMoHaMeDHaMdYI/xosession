@@ -195,7 +195,110 @@ puts "Hallo #{name}"</code></pre>
             <p class="highlight">Ausgabe ist immer: <strong>Hallo Max</strong> 👋</p>
         </div>
 
-        <!-- Slide 8: Interaktive Farben -->
+        <!-- Slide 8: Python Code Struktur -->
+        <div class="slide">
+            <h1>🐍 Unser Python Code</h1>
+            <p class="subtitle">Wir programmieren mit Python und Turtle Graphics!</p>
+
+            <div class="python-structure">
+                <div class="code-section">
+                    <h3>📋 Was macht unser Code?</h3>
+                    <div class="code-parts">
+                        <div class="code-part">
+                            <span class="part-num">1️⃣</span>
+                            <strong>Spielfeld zeichnen</strong>
+                            <p>Das 3x3 Gitter mit Linien</p>
+                        </div>
+                        <div class="code-part">
+                            <span class="part-num">2️⃣</span>
+                            <strong>X und O zeichnen</strong>
+                            <p>Symbole in den Feldern anzeigen</p>
+                        </div>
+                        <div class="code-part">
+                            <span class="part-num">3️⃣</span>
+                            <strong>Gewinner prüfen</strong>
+                            <p>Hat jemand 3 in einer Reihe?</p>
+                        </div>
+                        <div class="code-part">
+                            <span class="part-num">4️⃣</span>
+                            <strong>KI-Zug berechnen</strong>
+                            <p>Minimax findet den besten Zug</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 30px;">
+                <p>🎯 <strong>Heute werdet ihr:</strong> Den Code lesen, verstehen und anpassen!</p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Python Code in Action -->
+        <div class="slide">
+            <h1>💻 So sieht der Code aus!</h1>
+            <p class="subtitle">Das Spiel Schritt für Schritt</p>
+
+            <div class="code-flow">
+                <div class="code-flow-section">
+                    <h3>🎨 1. Spielfeld vorbereiten</h3>
+                    <pre><code># Erstelle ein leeres Board
+board = [None, None, None,
+         None, None, None,
+         None, None, None]
+
+# Zeichne das Spielfeld
+drawBoard("black")</code></pre>
+                </div>
+
+                <div class="code-flow-section">
+                    <h3>🎮 2. Spielerzug verarbeiten</h3>
+                    <pre><code># Spieler klickt auf Position 4
+board[4] = 'X'
+
+# Zeichne X an Position 4
+drawX("blue")</code></pre>
+                </div>
+
+                <div class="code-flow-section">
+                    <h3>🔍 3. Gewinner prüfen</h3>
+                    <pre><code>def check_winner(board):
+    # Prüfe alle Gewinnmöglichkeiten
+    lines = [[0,1,2], [3,4,5], [6,7,8],
+             [0,3,6], [1,4,7], [2,5,8],
+             [0,4,8], [2,4,6]]
+
+    for line in lines:
+        if board[line[0]] == board[line[1]] == board[line[2]]:
+            return board[line[0]]  # Gewinner!
+    return None  # Noch kein Gewinner</code></pre>
+                </div>
+
+                <div class="code-flow-section">
+                    <h3>🤖 4. KI macht ihren Zug</h3>
+                    <pre><code># KI findet besten Zug mit Minimax
+best_move = get_ai_move()
+
+# Setze O an bester Position
+board[best_move] = 'O'
+
+# Zeichne O
+drawO("red")</code></pre>
+                </div>
+
+                <div class="code-flow-section">
+                    <h3>🔄 5. Spiel läuft weiter</h3>
+                    <pre><code># Immer wieder:
+while not game_over:
+    # Spieler → KI → Prüfen → Weiter
+
+    if check_winner(board):
+        print("Gewonnen!")
+        game_over = True</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Interaktive Farben -->
         <div class="slide">
             <h1>🎨 Programmieren ist kreativ!</h1>
             <p class="subtitle">Ändere die Farben mit Hex-Codes!</p>
@@ -341,109 +444,6 @@ board_farbe = "black"</code></pre>
                     <h3>💡 Bonus:</h3>
                     <p>Ändere auch die Hintergrundfarbe des Bildschirms:</p>
                     <pre><code>screen.bgcolor("lightblue")</code></pre>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 12: Python Code Struktur -->
-        <div class="slide">
-            <h1>🐍 Unser Python Code</h1>
-            <p class="subtitle">Wir programmieren mit Python und Turtle Graphics!</p>
-
-            <div class="python-structure">
-                <div class="code-section">
-                    <h3>📋 Was macht unser Code?</h3>
-                    <div class="code-parts">
-                        <div class="code-part">
-                            <span class="part-num">1️⃣</span>
-                            <strong>Spielfeld zeichnen</strong>
-                            <p>Das 3x3 Gitter mit Linien</p>
-                        </div>
-                        <div class="code-part">
-                            <span class="part-num">2️⃣</span>
-                            <strong>X und O zeichnen</strong>
-                            <p>Symbole in den Feldern anzeigen</p>
-                        </div>
-                        <div class="code-part">
-                            <span class="part-num">3️⃣</span>
-                            <strong>Gewinner prüfen</strong>
-                            <p>Hat jemand 3 in einer Reihe?</p>
-                        </div>
-                        <div class="code-part">
-                            <span class="part-num">4️⃣</span>
-                            <strong>KI-Zug berechnen</strong>
-                            <p>Minimax findet den besten Zug</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="highlight" style="margin-top: 30px;">
-                <p>🎯 <strong>Heute werdet ihr:</strong> Den Code lesen, verstehen und anpassen!</p>
-            </div>
-        </div>
-
-        <!-- Slide 10: Python Code in Action -->
-        <div class="slide">
-            <h1>💻 So sieht der Code aus!</h1>
-            <p class="subtitle">Das Spiel Schritt für Schritt</p>
-
-            <div class="code-flow">
-                <div class="code-flow-section">
-                    <h3>🎨 1. Spielfeld vorbereiten</h3>
-                    <pre><code># Erstelle ein leeres Board
-board = [None, None, None,
-         None, None, None,
-         None, None, None]
-
-# Zeichne das Spielfeld
-drawBoard("black")</code></pre>
-                </div>
-
-                <div class="code-flow-section">
-                    <h3>🎮 2. Spielerzug verarbeiten</h3>
-                    <pre><code># Spieler klickt auf Position 4
-board[4] = 'X'
-
-# Zeichne X an Position 4
-drawX("blue")</code></pre>
-                </div>
-
-                <div class="code-flow-section">
-                    <h3>🔍 3. Gewinner prüfen</h3>
-                    <pre><code>def check_winner(board):
-    # Prüfe alle Gewinnmöglichkeiten
-    lines = [[0,1,2], [3,4,5], [6,7,8],
-             [0,3,6], [1,4,7], [2,5,8],
-             [0,4,8], [2,4,6]]
-
-    for line in lines:
-        if board[line[0]] == board[line[1]] == board[line[2]]:
-            return board[line[0]]  # Gewinner!
-    return None  # Noch kein Gewinner</code></pre>
-                </div>
-
-                <div class="code-flow-section">
-                    <h3>🤖 4. KI macht ihren Zug</h3>
-                    <pre><code># KI findet besten Zug mit Minimax
-best_move = get_ai_move()
-
-# Setze O an bester Position
-board[best_move] = 'O'
-
-# Zeichne O
-drawO("red")</code></pre>
-                </div>
-
-                <div class="code-flow-section">
-                    <h3>🔄 5. Spiel läuft weiter</h3>
-                    <pre><code># Immer wieder:
-while not game_over:
-    # Spieler → KI → Prüfen → Weiter
-
-    if check_winner(board):
-        print("Gewonnen!")
-        game_over = True</code></pre>
                 </div>
             </div>
         </div>

@@ -4,13 +4,13 @@ Eine interaktive Präsentation über die Entwicklung eines XO-Spiels (TicTacToe)
 
 ## 📋 Inhalt
 
-Die Präsentation umfasst **15 Folien** basierend auf dem Workshop-Zeitplan (130 Minuten):
+Die Präsentation umfasst **17 Folien** basierend auf dem Workshop-Zeitplan (130 Minuten):
 
 ### Einführung (35 Min)
 1. **Titel** - Einführung in Spiele & KI
-2. **Was sind Spiele?** - Beispiele aus dem Alltag (Minecraft, Fortnite, Roblox)
+2. **Welche Spiele spielt ihr?** - Interaktive Diskussionsfrage
 3. **KI in Computerspielen** - Wie Computer "denken"
-4. **XO-Spiel Einführung** - Regeln und Beispiel
+4. **Wer kann uns erinnern, wie TicTacToe geht?** - Interaktive Regelerklärung
 5. **Interaktives Spiel** - 3 Schwierigkeitsstufen zum Ausprobieren
 
 ### Programmierung (60 Min)
@@ -23,17 +23,39 @@ Die Präsentation umfasst **15 Folien** basierend auf dem Workshop-Zeitplan (130
     - 🔄 Symbole mit if-else tauschen (30 Min)
     - 🎉 Gewinn-Animation (10 Min)
     - 🔄 Neustart-Funktion (10 Min)
-11. **Python Code Beispiele** - Wichtige Code-Teile erklärt
+11. **Wie speichern wir das Spielfeld?** - 🆕 Datenrepräsentation verstehen (board als Liste, Positionen 0-8, was ist "b"?)
+12. **Python Code Beispiele** - Wichtige Code-Teile erklärt
 
 ### Vertiefung & Wettbewerb (35 Min)
-12. **Minimax Erklärung** - Wie der Algorithmus funktioniert
-13. **Design deine eigene KI** - Teamarbeit: Strategie entwickeln (20 Min)
-14. **Showtime - Der Wettbewerb!** - Teams treten gegeneinander an (15 Min)
-15. **Zusammenfassung & Ausblick** - Was ihr gelernt habt
+13. **Minimax Erklärung** - Wie der Algorithmus funktioniert
+14. **Design deine eigene KI** - Teamarbeit: Strategie entwickeln (20 Min)
+15. **Showtime - Der Wettbewerb!** - Teams treten gegeneinander an (15 Min)
+16. **Was habt ihr heute gelernt?** - 🆕 Interaktive Reflexionsfrage
+17. **Zusammenfassung & Ausblick** - Was ihr gelernt habt
+
+## ✨ Neue Features (basierend auf Feedback)
+
+### 🎯 Interaktive Diskussionsfolien
+- **Slide 2**: "Welche Spiele spielt ihr?" - Große zentrierte Frage für Gruppendiskussion
+- **Slide 4**: "Wer kann uns erinnern, wie TicTacToe geht?" - Aktiviert Vorwissen
+- **Slide 16**: "Was habt ihr heute gelernt?" - Reflexion vor der Zusammenfassung
+
+### 💾 Datenrepräsentation erklärt (Slide 11)
+Eine der wichtigsten Ergänzungen! Zeigt:
+- Wie das 3x3 Spielfeld als Liste gespeichert wird
+- Position 0-8 statt 1-9 (Computer zählt ab 0)
+- Was `board = ['X', 'O', None, ...]` bedeutet
+- Was der Parameter `b` in Funktionen ist
+- Visuelle Zuordnung: Spielfeld ↔ Code
+
+### 🌈 Gendergerechte Sprache
+- "Programmierer:in" statt "Programmierer"
+- "Anfänger:in" statt "Anfänger"
+- "Ihr" statt "Du" in Gruppenkontexten
 
 ## 📁 Dateien
 
-- **index.html** - Haupt-Präsentationsdatei
+- **index.html** - Haupt-Präsentationsdatei (17 Folien)
 - **styles.css** - Styling und Animationen
 - **script.js** - Interaktive Spiellogik (JavaScript)
 - **tictactoe_minimax.py** - Vollständiger Python-Code mit Minimax

@@ -448,52 +448,328 @@ while not game_over:
             </div>
         </div>
 
-        <!-- Slide 13: Programming Challenges 2-4 -->
+        <!-- Slide 12: if-else Demo -->
         <div class="slide">
-            <h1>🎯 Weitere Challenges!</h1>
-            <p class="subtitle">50 Minuten - 3 Aufgaben</p>
+            <h1>🔄 Das Problem: Falsche Symbole!</h1>
+            <p class="subtitle">Lass uns einen Bug finden!</p>
 
-            <div class="challenges-container">
-                <div class="challenge-card medium">
-                    <div class="challenge-header">
-                        <span class="challenge-icon">🔄</span>
-                        <h3>Challenge 2: Symbole tauschen</h3>
-                        <span class="challenge-time">⏱️ 30 Min</span>
+            <div style="display: flex; gap: 40px; align-items: center; margin-top: 40px;">
+                <div style="flex: 1;">
+                    <h3>Was passiert gerade:</h3>
+                    <div class="visual-grid" style="max-width: 300px; margin: 20px auto;">
+                        <div class="grid-cell">
+                            <span class="cell-content" style="color: blue;">X</span>
+                        </div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell">
+                            <span class="cell-content" style="color: blue;">X</span>
+                        </div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
                     </div>
-                    <p>Lass Spieler wählen: X oder O?</p>
-                    <ul>
-                        <li>Nutze <code>if-else</code> Bedingungen</li>
-                        <li>Spieler soll am Anfang wählen können</li>
-                        <li>Computer spielt dann das andere Symbol</li>
-                    </ul>
+                    <p style="color: #e74c3c; font-weight: bold; font-size: 24px;">🐛 Beide Züge sind X!</p>
                 </div>
 
-                <div class="challenge-card easy">
-                    <div class="challenge-header">
-                        <span class="challenge-icon">🎉</span>
-                        <h3>Challenge 3: Gewinn-Animation</h3>
-                        <span class="challenge-time">⏱️ 10 Min</span>
+                <div style="flex: 1;">
+                    <h3>Was sollte passieren:</h3>
+                    <div class="visual-grid" style="max-width: 300px; margin: 20px auto;">
+                        <div class="grid-cell">
+                            <span class="cell-content" style="color: blue;">X</span>
+                        </div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell">
+                            <span class="cell-content" style="color: red;">O</span>
+                        </div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
+                        <div class="grid-cell"></div>
                     </div>
-                    <p>Zeige etwas Cooles, wenn jemand gewinnt!</p>
-                    <ul>
-                        <li>Zeichne Feuerwerk oder Sterne</li>
-                        <li>Verändere die Nachricht</li>
-                        <li>Mache es bunt und auffällig!</li>
-                    </ul>
+                    <p style="color: #27ae60; font-weight: bold; font-size: 24px;">✅ Spieler: X, KI: O</p>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <p><strong>Das Problem:</strong> Der Code zeichnet IMMER X, egal wer dran ist!</p>
+            </div>
+        </div>
+
+        <!-- Slide 13: if-else Erklärung -->
+        <div class="slide">
+            <h1>🤔 Die Lösung: if-else!</h1>
+            <p class="subtitle">Entscheidungen im Code treffen</p>
+
+            <div style="max-width: 800px; margin: 40px auto;">
+                <h3>Mit if-else können wir Entscheidungen treffen:</h3>
+
+                <pre style="font-size: 20px; margin: 30px 0;"><code>if board[pos] == 'X':
+    draw_x(row, col)      # Zeichne X
+else:
+    draw_o(row, col)      # Zeichne O
+</code></pre>
+
+                <div style="display: flex; gap: 30px; margin-top: 40px;">
+                    <div style="flex: 1; padding: 20px; background: #e8f5e9; border-radius: 10px;">
+                        <h3 style="color: #27ae60;">✅ Wenn Bedingung WAHR</h3>
+                        <p>Führe Code nach <code>if</code> aus</p>
+                        <pre><code>board[pos] == 'X'  → True
+→ draw_x(row, col)</code></pre>
+                    </div>
+
+                    <div style="flex: 1; padding: 20px; background: #ffebee; border-radius: 10px;">
+                        <h3 style="color: #e74c3c;">❌ Wenn Bedingung FALSCH</h3>
+                        <p>Führe Code nach <code>else</code> aus</p>
+                        <pre><code>board[pos] == 'X'  → False
+→ draw_o(row, col)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Challenge 2 -->
+        <div class="slide">
+            <h1>🔄 Challenge 2: Symbole korrigieren!</h1>
+            <p class="subtitle">⏱️ 15 Minuten</p>
+
+            <div class="challenge-card medium" style="max-width: 800px; margin: 40px auto;">
+                <div class="challenge-header">
+                    <span class="challenge-icon">🐛</span>
+                    <h3>Finde den Bug und repariere ihn!</h3>
                 </div>
 
-                <div class="challenge-card easy">
-                    <div class="challenge-header">
-                        <span class="challenge-icon">🔄</span>
-                        <h3>Challenge 4: Neustart-Button</h3>
-                        <span class="challenge-time">⏱️ 10 Min</span>
+                <div style="text-align: left; padding: 20px;">
+                    <h3>📝 Deine Aufgabe:</h3>
+                    <ul style="font-size: 20px; line-height: 2;">
+                        <li>Öffne <code>challenge2_symbole.py</code></li>
+                        <li>Suche nach <code># TODO</code> Kommentaren</li>
+                        <li>Ersetze die Zeile die immer <code>draw_x()</code> aufruft</li>
+                        <li>Nutze <code>if-else</code> um zu prüfen: X oder O?</li>
+                    </ul>
+
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>💡 Tipp:</strong> Es gibt ZWEI Stellen - Spielerzug UND KI-Zug!</p>
                     </div>
-                    <p>Starte das Spiel mit einem Klick neu!</p>
-                    <ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Animation Demo -->
+        <div class="slide">
+            <h1>🎉 Gewonnen? Feier es!</h1>
+            <p class="subtitle">Animationen machen Spiele spannend</p>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <h3>Wenn jemand gewinnt, können wir:</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                    <div style="padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                        <div style="font-size: 60px; margin-bottom: 20px;">🎆</div>
+                        <h3>Feuerwerk</h3>
+                        <p>Bunte Linien in alle Richtungen!</p>
+                    </div>
+
+                    <div style="padding: 30px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 15px; color: white;">
+                        <div style="font-size: 60px; margin-bottom: 20px;">⭐</div>
+                        <h3>Sterne</h3>
+                        <p>Zeichne goldene Sterne!</p>
+                    </div>
+
+                    <div style="padding: 30px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 15px; color: white;">
+                        <div style="font-size: 60px; margin-bottom: 20px;">🌈</div>
+                        <h3>Farben</h3>
+                        <p>Ändere den Hintergrund!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <p><strong>Idee:</strong> Kombiniere mehrere Effekte für eine coole Gewinn-Animation!</p>
+            </div>
+        </div>
+
+        <!-- Slide 16: Loops für Animation -->
+        <div class="slide">
+            <h1>🔁 Schleifen: Wiederhole Code!</h1>
+            <p class="subtitle">Wie man Feuerwerk zeichnet</p>
+
+            <div style="max-width: 900px; margin: 40px auto;">
+                <h3>Eine <code>for</code>-Schleife wiederholt Code mehrmals:</h3>
+
+                <pre style="font-size: 18px; margin: 30px 0;"><code>def draw_firework(x, y):
+    colors = ["red", "yellow", "blue", "green", "purple"]
+
+    for i in range(36):              # Wiederhole 36 mal
+        pen.color(random.choice(colors))  # Zufällige Farbe
+        pen.goto(x, y)               # Zurück zum Zentrum
+        pen.forward(50)              # Linie zeichnen
+        pen.right(10)                # Drehe 10 Grad
+</code></pre>
+
+                <div style="display: flex; gap: 30px; align-items: center; margin-top: 40px;">
+                    <div style="flex: 1;">
+                        <h3>Was passiert:</h3>
+                        <ul style="font-size: 18px; line-height: 2;">
+                            <li>36 Linien werden gezeichnet</li>
+                            <li>Jede Linie hat eine zufällige Farbe</li>
+                            <li>Jede Linie dreht sich 10° weiter</li>
+                            <li>36 × 10° = 360° = voller Kreis!</li>
+                        </ul>
+                    </div>
+
+                    <div style="flex: 1; font-size: 80px; text-align: center;">
+                        💥<br>
+                        <span style="font-size: 20px; color: #7f8c8d;">Ein Feuerwerk!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Challenge 3 -->
+        <div class="slide">
+            <h1>🎨 Challenge 3: Gewinn-Animation!</h1>
+            <p class="subtitle">⏱️ 15 Minuten</p>
+
+            <div class="challenge-card easy" style="max-width: 800px; margin: 40px auto;">
+                <div class="challenge-header">
+                    <span class="challenge-icon">🎉</span>
+                    <h3>Mach das Spiel bunter!</h3>
+                </div>
+
+                <div style="text-align: left; padding: 20px;">
+                    <h3>📝 Deine Aufgabe:</h3>
+                    <ul style="font-size: 20px; line-height: 2;">
+                        <li>Öffne <code>challenge3_animation.py</code></li>
+                        <li>Finde die <code>celebrate_win()</code> Funktion</li>
+                        <li>Zeichne Feuerwerk mit <code>draw_firework()</code></li>
+                        <li>Zeichne Sterne mit <code>draw_star()</code></li>
+                        <li>Ändere die Hintergrundfarbe!</li>
+                    </ul>
+
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>💡 Bonus:</strong> Erfinde deine eigene Animation!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: Reset Demo -->
+        <div class="slide">
+            <h1>🔄 Nochmal spielen!</h1>
+            <p class="subtitle">Was passiert beim Neustart?</p>
+
+            <div style="max-width: 1000px; margin: 40px auto;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+                    <div style="padding: 30px; background: #ffebee; border-radius: 15px;">
+                        <h3 style="color: #e74c3c;">❌ Spiel ist vorbei</h3>
+                        <div class="visual-grid" style="max-width: 250px; margin: 20px auto;">
+                            <div class="grid-cell"><span class="cell-content">X</span></div>
+                            <div class="grid-cell"><span class="cell-content">X</span></div>
+                            <div class="grid-cell"><span class="cell-content">X</span></div>
+                            <div class="grid-cell"><span class="cell-content">O</span></div>
+                            <div class="grid-cell"><span class="cell-content">O</span></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                        </div>
+                        <p style="text-align: center; font-weight: bold;">Gewinner: X!</p>
+                    </div>
+
+                    <div style="padding: 30px; background: #e8f5e9; border-radius: 15px;">
+                        <h3 style="color: #27ae60;">✅ Nach Neustart</h3>
+                        <div class="visual-grid" style="max-width: 250px; margin: 20px auto;">
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                            <div class="grid-cell"></div>
+                        </div>
+                        <p style="text-align: center; font-weight: bold;">Alles leer - neues Spiel!</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding: 30px; background: #e3f2fd; border-radius: 15px;">
+                    <h3>🔄 Die <code>reset_game()</code> Funktion macht:</h3>
+                    <ul style="font-size: 20px; line-height: 2;">
+                        <li>Board zurücksetzen (alle Felder leer)</li>
+                        <li>Zeichnungen löschen</li>
+                        <li>Spielfeld neu zeichnen</li>
+                        <li>Nachricht anzeigen: "Neues Spiel!"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Funktionen Erklärung -->
+        <div class="slide">
+            <h1>📦 Funktionen: Code-Bausteine!</h1>
+            <p class="subtitle">Wiederverwendbarer Code</p>
+
+            <div style="max-width: 900px; margin: 40px auto;">
+                <h3>Funktionen sind wie Rezepte:</h3>
+
+                <div style="display: flex; gap: 40px; margin-top: 40px; align-items: center;">
+                    <div style="flex: 1;">
+                        <pre style="font-size: 18px;"><code>def reset_game():
+    board = [None] * 9
+    pen.clear()
+    text_pen.clear()
+    draw_board()
+    show_message("Neues Spiel!")</code></pre>
+                    </div>
+
+                    <div style="flex: 1; font-size: 18px;">
+                        <p><strong>1. Definition:</strong> <code>def</code> erstellt die Funktion</p>
+                        <p><strong>2. Name:</strong> <code>reset_game</code> beschreibt was sie tut</p>
+                        <p><strong>3. Code:</strong> Die Schritte die ausgeführt werden</p>
+                        <p><strong>4. Aufruf:</strong> <code>reset_game()</code> führt alles aus!</p>
+                    </div>
+                </div>
+
+                <div class="highlight" style="margin-top: 40px;">
+                    <p><strong>💡 Vorteil:</strong> Einmal schreiben, beliebig oft verwenden!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Challenge 4 -->
+        <div class="slide">
+            <h1>🔄 Challenge 4: Statistik hinzufügen!</h1>
+            <p class="subtitle">⏱️ 15 Minuten</p>
+
+            <div class="challenge-card easy" style="max-width: 800px; margin: 40px auto;">
+                <div class="challenge-header">
+                    <span class="challenge-icon">📊</span>
+                    <h3>Zähle Siege und Niederlagen!</h3>
+                </div>
+
+                <div style="text-align: left; padding: 20px;">
+                    <h3>📝 Deine Aufgabe:</h3>
+                    <ul style="font-size: 20px; line-height: 2;">
+                        <li>Öffne <code>challenge4_neustart.py</code></li>
                         <li>Finde die <code>reset_game()</code> Funktion</li>
-                        <li>Das Board soll sich leeren</li>
-                        <li>Alles beginnt von vorne!</li>
+                        <li>Verstehe was jede Zeile macht</li>
+                        <li><strong>BONUS:</strong> Füge Zähler hinzu:</li>
+                        <ul style="margin-left: 40px; margin-top: 10px;">
+                            <li><code>games_played</code> - Spiele gespielt</li>
+                            <li><code>player_wins</code> - Spieler-Siege</li>
+                            <li><code>ai_wins</code> - KI-Siege</li>
+                        </ul>
                     </ul>
+
+                    <div class="highlight" style="margin-top: 30px;">
+                        <p><strong>💡 Tipp:</strong> Suche nach <code># TODO BONUS</code> im Code!</p>
+                    </div>
                 </div>
             </div>
         </div>

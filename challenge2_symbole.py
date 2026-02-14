@@ -1,13 +1,12 @@
 """
-Challenge 2: Symbole tauschen mit if-else
-==========================================
-Lass den Spieler wählen: Möchtest du X oder O sein?
+Challenge 2: Richtige Symbole zeichnen mit if-else
+===================================================
+PROBLEM: Momentan wird IMMER X gezeichnet, egal wer spielt!
 
 AUFGABE:
-1. Erstelle Variablen für player_symbol und ai_symbol (Zeile 27-28)
-2. Frage den Spieler nach seiner Wahl (Zeile 33)
-3. Nutze if-else um die Symbole zuzuweisen (Zeile 35-40)
-4. Ändere den Code, damit die Variablen verwendet werden
+Nutze if-else um das RICHTIGE Symbol zu zeichnen:
+- Wenn der Spieler dran ist → zeichne X
+- Wenn die KI dran ist → zeichne O
 
 TIPP: Suche nach "# TODO" für Stellen, die du ändern musst!
 """
@@ -26,25 +25,9 @@ o_farbe = "red"
 board_farbe = "black"
 screen_farbe = "white"
 
-# TODO: Erstelle Variablen für die Symbole
-player_symbol = 'X'  # Was spielt der Mensch?
-ai_symbol = 'O'      # Was spielt die KI?
-
 # Set up the screen
 screen = turtle.Screen()
 screen.bgcolor(screen_farbe)
-
-# TODO: Frage den Spieler nach seiner Wahl
-# Tipp: screen.textinput("Titel", "Frage?")
-choice = None  # ← Hier Code einfügen!
-
-# TODO: Nutze if-else um die Symbole zu setzen
-# if choice und choice ist 'o' oder 'O':
-#     player_symbol = 'O'
-#     ai_symbol = 'X'
-# else:
-#     player_symbol = 'X'
-#     ai_symbol = 'O'
 
 # Create drawing turtle
 pen = turtle.Turtle()
@@ -157,10 +140,9 @@ def get_available_moves(b):
 def minimax(b, is_maximizing):
     """Minimax algorithm - returns the score of the best outcome."""
     winner = check_winner(b)
-    # TODO: Ändere 'O' und 'X' zu ai_symbol und player_symbol
-    if winner == 'O':  # TODO: ai_symbol verwenden
+    if winner == 'O':
         return 10
-    if winner == 'X':  # TODO: player_symbol verwenden
+    if winner == 'X':
         return -10
     if is_board_full(b):
         return 0
@@ -168,7 +150,7 @@ def minimax(b, is_maximizing):
     if is_maximizing:
         best_score = float('-inf')
         for move in get_available_moves(b):
-            b[move] = 'O'  # TODO: ai_symbol verwenden
+            b[move] = 'O'
             score = minimax(b, False)
             b[move] = None
             best_score = max(score, best_score)
@@ -176,7 +158,7 @@ def minimax(b, is_maximizing):
     else:
         best_score = float('inf')
         for move in get_available_moves(b):
-            b[move] = 'X'  # TODO: player_symbol verwenden
+            b[move] = 'X'
             score = minimax(b, True)
             b[move] = None
             best_score = min(score, best_score)
@@ -189,7 +171,7 @@ def get_ai_move():
     best_move = None
 
     for move in get_available_moves(board):
-        board[move] = 'O'  # TODO: ai_symbol verwenden
+        board[move] = 'O'
         score = minimax(board, False)
         board[move] = None
 
@@ -221,8 +203,7 @@ def reset_game():
     pen.clear()
     text_pen.clear()
     draw_board()
-    # TODO: Ändere die Nachricht basierend auf player_symbol
-    show_message(f"Your turn! You are {player_symbol}")
+    show_message("Your turn! You are X")
 
 
 def handle_click(x, y):
@@ -243,16 +224,17 @@ def handle_click(x, y):
         return
 
     # Human move
-    board[pos] = 'X'  # TODO: player_symbol verwenden
+    board[pos] = 'X'
 
-    # TODO: Zeichne das richtige Symbol basierend auf player_symbol
-    # if player_symbol == 'X':
+    # TODO: PROBLEM! Wir zeichnen immer X, egal was im Board steht!
+    # Nutze if-else um das richtige Symbol zu zeichnen:
+    # if board[pos] == 'X':
     #     draw_x(row, col)
     # else:
     #     draw_o(row, col)
-    draw_x(row, col)  # ← Ersetze mit if-else!
 
-    # TODO: Ändere 'X' zu player_symbol
+    draw_x(row, col)  # ← BUG: Immer X! Ersetze mit if-else!
+
     if check_winner(board) == 'X':
         show_message("YOU WIN! (Click to play again)")
         game_over = True
@@ -267,18 +249,18 @@ def handle_click(x, y):
     show_message("AI is thinking...")
 
     ai_move = get_ai_move()
-    board[ai_move] = 'O'  # TODO: ai_symbol verwenden
+    board[ai_move] = 'O'
     ai_row = ai_move // 3
     ai_col = ai_move % 3
 
-    # TODO: Zeichne das richtige Symbol basierend auf ai_symbol
-    # if ai_symbol == 'O':
+    # TODO: Gleiches Problem! Nutze if-else:
+    # if board[ai_move] == 'O':
     #     draw_o(ai_row, ai_col)
     # else:
     #     draw_x(ai_row, ai_col)
-    draw_o(ai_row, ai_col)  # ← Ersetze mit if-else!
 
-    # TODO: Ändere 'O' zu ai_symbol
+    draw_x(ai_row, ai_col)  # ← BUG: Immer X! Ersetze mit if-else!
+
     if check_winner(board) == 'O':
         show_message("AI WINS! (Click to play again)")
         game_over = True
@@ -294,7 +276,7 @@ def handle_click(x, y):
 
 # Initialize the game
 draw_board()
-show_message(f"Your turn! You are {player_symbol}")
+show_message("Your turn! You are X")
 
 # Set up click handler
 screen.onclick(handle_click)

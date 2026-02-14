@@ -123,11 +123,11 @@ def draw_o(row, col):
     pen.pensize(3)
 
 
-def show_message(msg):
+def show_message(msg, size=16):
     """Display a message below the board."""
     text_pen.clear()
     text_pen.goto(0, -BOARD_SIZE // 2 - 40)
-    text_pen.write(msg, align="center", font=("Arial", 16, "bold"))
+    text_pen.write(msg, align="center", font=("Arial", size, "bold"))
 
 
 # Challenge 3: Gewinn-Animation
@@ -230,20 +230,35 @@ def minimax(b, is_maximizing):
 
 
 def get_ai_move():
-    """Find the best move for the AI using minimax."""
-    best_score = float('-inf')
-    best_move = None
+    """
+    Find a move for the AI - EASY MODE!
+    Die KI macht zu 70% zufällige Züge, damit du gewinnen kannst!
+    """
+    available = get_available_moves(board)
 
-    for move in get_available_moves(board):
+    # 70% der Zeit: Mache einen zufälligen Zug
+    if random.random() < 0.7:
+        return random.choice(available)
+
+    # 30% der Zeit: Versuche zu gewinnen oder zu blocken
+    # Prüfe ob KI gewinnen kann
+    for move in available:
         board[move] = ai_symbol
-        score = minimax(board, False)
+        if check_winner(board) == ai_symbol:
+            board[move] = None
+            return move
         board[move] = None
 
-        if score > best_score:
-            best_score = score
-            best_move = move
+    # Prüfe ob Spieler gewinnen würde (und blocke es)
+    for move in available:
+        board[move] = player_symbol
+        if check_winner(board) == player_symbol:
+            board[move] = None
+            return move
+        board[move] = None
 
-    return best_move
+    # Sonst: zufälliger Zug
+    return random.choice(available)
 
 
 def pos_to_cell(x, y):
@@ -304,7 +319,7 @@ def handle_click(x, y):
     if check_winner(board) == player_symbol:
         player_wins += 1
         celebrate_win(player_symbol)
-        show_message("DU HAST GEWONNEN! 🎉🎉🎉 (Klick für neues Spiel)")
+        show_message(f"🎉 DU HAST GEWONNEN! 🎉\n{player_symbol} gewinnt!\n(Klick für neues Spiel)", size=24)
         game_over = True
         return
 
@@ -330,7 +345,7 @@ def handle_click(x, y):
     if check_winner(board) == ai_symbol:
         ai_wins += 1
         celebrate_win(ai_symbol)
-        show_message("KI HAT GEWONNEN! (Klick für neues Spiel)")
+        show_message(f"KI HAT GEWONNEN!\n{ai_symbol} gewinnt!\n(Klick für neues Spiel)", size=24)
         game_over = True
         return
 

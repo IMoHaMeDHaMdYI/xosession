@@ -1,9 +1,15 @@
 """
-Tic-Tac-Toe with Minimax AI - Turtle GUI Version
-=================================================
-Works on Trinket.io (https://trinket.io/library/trinkets/create?lang=python)
+Challenge 2: Symbole tauschen mit if-else
+==========================================
+Lass den Spieler wählen: Möchtest du X oder O sein?
 
-Click on a square to make your move. Try to beat the AI!
+AUFGABE:
+1. Erstelle Variablen für player_symbol und ai_symbol (Zeile 27-28)
+2. Frage den Spieler nach seiner Wahl (Zeile 33)
+3. Nutze if-else um die Symbole zuzuweisen (Zeile 35-40)
+4. Ändere den Code, damit die Variablen verwendet werden
+
+TIPP: Suche nach "# TODO" für Stellen, die du ändern musst!
 """
 
 import turtle
@@ -13,19 +19,37 @@ board = [None] * 9
 game_over = False
 CELL_SIZE = 100
 BOARD_SIZE = CELL_SIZE * 3
+
+# Farben (aus Challenge 1)
+x_farbe = "blue"
 o_farbe = "red"
-x_farbe = "black"
-spielfeld_farbe = "black"
-screen_farbe = "pink"
+board_farbe = "black"
+screen_farbe = "white"
+
+# TODO: Erstelle Variablen für die Symbole
+player_symbol = 'X'  # Was spielt der Mensch?
+ai_symbol = 'O'      # Was spielt die KI?
 
 # Set up the screen
 screen = turtle.Screen()
 screen.bgcolor(screen_farbe)
 
+# TODO: Frage den Spieler nach seiner Wahl
+# Tipp: screen.textinput("Titel", "Frage?")
+choice = None  # ← Hier Code einfügen!
+
+# TODO: Nutze if-else um die Symbole zu setzen
+# if choice und choice ist 'o' oder 'O':
+#     player_symbol = 'O'
+#     ai_symbol = 'X'
+# else:
+#     player_symbol = 'X'
+#     ai_symbol = 'O'
+
 # Create drawing turtle
 pen = turtle.Turtle()
 pen.hideturtle()
-pen.speed(0)  # Fastest speed
+pen.speed(0)
 pen.pensize(3)
 
 # Create text turtle for messages
@@ -37,26 +61,22 @@ text_pen.penup()
 def draw_board():
     """Draw the 3x3 grid."""
     pen.penup()
-    pen.color(spielfeld_farbe)
+    pen.color(board_farbe)
 
-    # Starting position (top-left corner)
     start_x = -BOARD_SIZE // 2
     start_y = BOARD_SIZE // 2
 
-    # Draw vertical lines
     for i in range(1, 3):
         pen.goto(start_x + i * CELL_SIZE, start_y)
         pen.pendown()
         pen.goto(start_x + i * CELL_SIZE, start_y - BOARD_SIZE)
         pen.penup()
 
-    # Draw horizontal lines
     for i in range(1, 3):
         pen.goto(start_x, start_y - i * CELL_SIZE)
         pen.pendown()
         pen.goto(start_x + BOARD_SIZE, start_y - i * CELL_SIZE)
         pen.penup()
-
 
 
 def draw_x(row, col):
@@ -67,11 +87,9 @@ def draw_x(row, col):
     start_x = -BOARD_SIZE // 2
     start_y = BOARD_SIZE // 2
 
-    # Center of the cell
     cx = start_x + col * CELL_SIZE + CELL_SIZE // 2
     cy = start_y - row * CELL_SIZE - CELL_SIZE // 2
 
-    # Draw X (two diagonal lines)
     offset = 30
     pen.penup()
     pen.goto(cx - offset, cy + offset)
@@ -94,13 +112,11 @@ def draw_o(row, col):
     start_x = -BOARD_SIZE // 2
     start_y = BOARD_SIZE // 2
 
-    # Center of the cell
     cx = start_x + col * CELL_SIZE + CELL_SIZE // 2
     cy = start_y - row * CELL_SIZE - CELL_SIZE // 2
 
-    # Draw circle
     pen.penup()
-    pen.goto(cx, cy - 30)  # Start at bottom of circle
+    pen.goto(cx, cy - 30)
     pen.pendown()
     pen.circle(30)
     pen.penup()
@@ -118,9 +134,9 @@ def show_message(msg):
 def check_winner(b):
     """Check if there's a winner. Returns 'X', 'O', or None."""
     lines = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8],  # Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8],  # Columns
-        [0, 4, 8], [2, 4, 6]              # Diagonals
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
     ]
     for line in lines:
         if b[line[0]] and b[line[0]] == b[line[1]] == b[line[2]]:
@@ -139,14 +155,12 @@ def get_available_moves(b):
 
 
 def minimax(b, is_maximizing):
-    """
-    Minimax algorithm - returns the score of the best outcome.
-    +10 = AI wins, -10 = Human wins, 0 = Draw
-    """
+    """Minimax algorithm - returns the score of the best outcome."""
     winner = check_winner(b)
-    if winner == 'O':
+    # TODO: Ändere 'O' und 'X' zu ai_symbol und player_symbol
+    if winner == 'O':  # TODO: ai_symbol verwenden
         return 10
-    if winner == 'X':
+    if winner == 'X':  # TODO: player_symbol verwenden
         return -10
     if is_board_full(b):
         return 0
@@ -154,7 +168,7 @@ def minimax(b, is_maximizing):
     if is_maximizing:
         best_score = float('-inf')
         for move in get_available_moves(b):
-            b[move] = 'O'
+            b[move] = 'O'  # TODO: ai_symbol verwenden
             score = minimax(b, False)
             b[move] = None
             best_score = max(score, best_score)
@@ -162,7 +176,7 @@ def minimax(b, is_maximizing):
     else:
         best_score = float('inf')
         for move in get_available_moves(b):
-            b[move] = 'X'
+            b[move] = 'X'  # TODO: player_symbol verwenden
             score = minimax(b, True)
             b[move] = None
             best_score = min(score, best_score)
@@ -175,7 +189,7 @@ def get_ai_move():
     best_move = None
 
     for move in get_available_moves(board):
-        board[move] = 'O'
+        board[move] = 'O'  # TODO: ai_symbol verwenden
         score = minimax(board, False)
         board[move] = None
 
@@ -207,7 +221,8 @@ def reset_game():
     pen.clear()
     text_pen.clear()
     draw_board()
-    show_message("Your turn! Click a square (You are X)")
+    # TODO: Ändere die Nachricht basierend auf player_symbol
+    show_message(f"Your turn! You are {player_symbol}")
 
 
 def handle_click(x, y):
@@ -224,21 +239,25 @@ def handle_click(x, y):
 
     pos = row * 3 + col
 
-    # Check if cell is empty
     if board[pos] is not None:
         return
 
     # Human move
-    board[pos] = 'X'
-    draw_x(row, col)
+    board[pos] = 'X'  # TODO: player_symbol verwenden
 
-    # Check for human win
+    # TODO: Zeichne das richtige Symbol basierend auf player_symbol
+    # if player_symbol == 'X':
+    #     draw_x(row, col)
+    # else:
+    #     draw_o(row, col)
+    draw_x(row, col)  # ← Ersetze mit if-else!
+
+    # TODO: Ändere 'X' zu player_symbol
     if check_winner(board) == 'X':
         show_message("YOU WIN! (Click to play again)")
         game_over = True
         return
 
-    # Check for draw
     if is_board_full(board):
         show_message("DRAW! (Click to play again)")
         game_over = True
@@ -248,18 +267,23 @@ def handle_click(x, y):
     show_message("AI is thinking...")
 
     ai_move = get_ai_move()
-    board[ai_move] = 'O'
+    board[ai_move] = 'O'  # TODO: ai_symbol verwenden
     ai_row = ai_move // 3
     ai_col = ai_move % 3
-    draw_o(ai_row, ai_col)
 
-    # Check for AI win
+    # TODO: Zeichne das richtige Symbol basierend auf ai_symbol
+    # if ai_symbol == 'O':
+    #     draw_o(ai_row, ai_col)
+    # else:
+    #     draw_x(ai_row, ai_col)
+    draw_o(ai_row, ai_col)  # ← Ersetze mit if-else!
+
+    # TODO: Ändere 'O' zu ai_symbol
     if check_winner(board) == 'O':
         show_message("AI WINS! (Click to play again)")
         game_over = True
         return
 
-    # Check for draw
     if is_board_full(board):
         show_message("DRAW! (Click to play again)")
         game_over = True
@@ -270,7 +294,7 @@ def handle_click(x, y):
 
 # Initialize the game
 draw_board()
-show_message("Your turn! Click a square (You are X)")
+show_message(f"Your turn! You are {player_symbol}")
 
 # Set up click handler
 screen.onclick(handle_click)

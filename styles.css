@@ -187,6 +187,131 @@ body {
     line-height: 1.6;
 }
 
+/* Variable Introduction */
+.variable-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;
+}
+
+.variable-explanation {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.variable-explanation h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.variable-box {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.variable-box p {
+    color: #333;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.variable-visual {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.var-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 150px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.var-box:hover {
+    transform: translateY(-5px);
+}
+
+.var-name {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.var-content {
+    font-family: 'Courier New', monospace;
+    color: #e74c3c;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.code-with-variables {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.code-with-variables h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.code-with-variables pre {
+    background: #2c3e50;
+    padding: 25px;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.code-with-variables code {
+    color: #66d9ef;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    line-height: 1.7;
+}
+
+.code-benefit {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.code-benefit h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.code-benefit pre {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 0;
+}
+
+.code-benefit code {
+    color: #fff;
+}
+
 .slide.active {
     opacity: 1;
     transform: translateX(0);
@@ -1597,5 +1722,30 @@ h3 {
 
     .code-flow-section code {
         font-size: 0.9em;
+    }
+
+    .variable-explanation,
+    .code-with-variables {
+        padding: 20px;
+    }
+
+    .variable-box p {
+        font-size: 1em;
+    }
+
+    .variable-visual {
+        flex-direction: column;
+    }
+
+    .var-box {
+        min-width: 100%;
+    }
+
+    .code-with-variables h3 {
+        font-size: 1.2em;
+    }
+
+    .code-benefit h4 {
+        font-size: 1em;
     }
 }

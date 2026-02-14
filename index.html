@@ -11,7 +11,7 @@
         <!-- Navigation -->
         <div class="nav-buttons">
             <button id="prevBtn" onclick="changeSlide(-1)">&#10094;</button>
-            <span id="slideCounter">1 / 19</span>
+            <span id="slideCounter">1 / 20</span>
             <button id="nextBtn" onclick="changeSlide(1)">&#10095;</button>
         </div>
 
@@ -243,7 +243,64 @@ puts "Hallo #{name}"</code></pre>
             </div>
         </div>
 
-        <!-- Slide 9: Python Code Struktur -->
+        <!-- Slide 10: Code for Colors - Introduction to Variables -->
+        <div class="slide">
+            <h1>📝 So geht das im Code!</h1>
+            <p class="subtitle">Farben mit Variablen speichern</p>
+
+            <div class="variable-intro">
+                <div class="variable-explanation">
+                    <h2>💡 Was sind Variablen?</h2>
+                    <div class="variable-box">
+                        <p>Eine <strong>Variable</strong> ist wie eine <strong>Box mit einem Namen</strong>,<br>
+                        in der wir etwas speichern können!</p>
+                        <div class="variable-visual">
+                            <div class="var-box">
+                                <div class="var-name">x_farbe</div>
+                                <div class="var-content">"blue"</div>
+                            </div>
+                            <div class="var-box">
+                                <div class="var-name">o_farbe</div>
+                                <div class="var-content">"red"</div>
+                            </div>
+                            <div class="var-box">
+                                <div class="var-name">board_farbe</div>
+                                <div class="var-content">"black"</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-with-variables">
+                    <h3>🎨 Farben im Code setzen:</h3>
+                    <pre><code># Variablen erstellen und Farben speichern
+x_farbe = "blue"
+o_farbe = "red"
+board_farbe = "black"
+
+# Variablen verwenden
+def drawX(row, col):
+    pen.color(x_farbe)  # ← Verwendet die Variable!
+    # ... zeichnet X
+
+def drawO(row, col):
+    pen.color(o_farbe)  # ← Verwendet die Variable!
+    # ... zeichnet O
+
+def drawBoard():
+    pen.color(board_farbe)  # ← Verwendet die Variable!
+    # ... zeichnet das Spielfeld</code></pre>
+
+                    <div class="code-benefit">
+                        <h4>✨ Vorteil: Farben ändern ist jetzt einfach!</h4>
+                        <pre><code># Nur eine Zeile ändern:
+x_farbe = "purple"  # Jetzt sind alle X lila! 💜</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Python Code Struktur -->
         <div class="slide">
             <h1>🐍 Unser Python Code</h1>
             <p class="subtitle">Wir programmieren mit Python und Turtle Graphics!</p>

@@ -143,6 +143,50 @@ body {
     text-align: center;
 }
 
+/* Code Flow */
+.code-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;
+}
+
+.code-flow-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.code-flow-section:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.code-flow-section h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.code-flow-section pre {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.code-flow-section code {
+    color: #66d9ef;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
 .slide.active {
     opacity: 1;
     transform: translateX(0);
@@ -1537,5 +1581,21 @@ h3 {
 
     .game-card h3 {
         font-size: 1.1em;
+    }
+
+    .code-flow-section {
+        padding: 20px;
+    }
+
+    .code-flow-section h3 {
+        font-size: 1.1em;
+    }
+
+    .code-flow-section pre {
+        padding: 15px;
+    }
+
+    .code-flow-section code {
+        font-size: 0.9em;
     }
 }

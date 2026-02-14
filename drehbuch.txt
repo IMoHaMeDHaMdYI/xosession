@@ -2,4 +2,27 @@
 
 introduce myself and my collegue Linda
 Talk about how I love games and it's why I started programming because of a game called metin2 which i noticed is big in germany 
-This game is written in Python which is the Programming language we're talking about today 
+
+All of these games are using a AI in different ways, some are not very intelligent, some are very hard you can't win. 
+And this is what we're doing today with our game tic-tac-toe, first can you remind me how the game works? 
+
+..
+[ Showing the interactive game ]
+Now you can come up and show me how you can play 
+[Play against easy, then medium, then hard]
+.. 
+
+[Showing the slide about building]
+If we want to create something like this, how can we do it? not even the smart part, how can we draw the boxes, the board, the X and O, the players taking turns. 
+There is so much going on in this simple game and today we're gonna explore it together. 
+
+.. 
+[Showing the Programming languages]
+In germany, we speak german to people to understand what we want to say, in Egypt we speak arabic, these are human languages.
+There are also computer languages, we use them to talk to the computer. they need to be VERY specific and VERY clear because computers are not 
+actually intelligent, they just have very smart instructions that make them smart, let's see howl.
+
+In this example we tell the computer two things 
+
+- give the computer an input 
+
